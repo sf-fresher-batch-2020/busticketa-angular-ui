@@ -1,0 +1,27 @@
+<h1>Buses Available</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sno</th>
+            <th>Provider</th>
+            <th>Time</th>
+            <th>Duration</th>
+            <th>Price</th>
+            
+        </tr>        
+    </thead>
+    <tbody>
+        <tr *ngFor="let bus of buses;let i=index;">
+            <td>{{i+1}}</td>
+            <td>{{bus.Provider}}</td>
+            <td>{{bus.Time}}</td>
+            <td>{{bus.Duration}}</td>
+            <td>{{bus.Price}}</td>
+            
+            <td>
+                <button class="btn btn-info">View Details</button>
+            </td>
+
+        </tr>
+    </tbody>
+</table>

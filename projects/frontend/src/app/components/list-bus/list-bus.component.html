@@ -1,0 +1,30 @@
+<h1>List Bus</h1>
+
+<div class="row">
+    <div class="col-12">
+
+        <table class="table table-bordered">
+            <thead>
+                <tr><th>Sno</th><th>Provider</th> <th>Duration</th> <th>Time </th><th>Price</th> <th> Added On</th> <th>Action</th></tr>
+
+            </thead>
+            <tbody>
+                <tr *ngFor="let obj of busList;let i=index;">
+                    <td>{{i+1}}</td>
+                    <td>{{obj.Provider}}</td>
+                    <td>{{obj.Duration}}</td>
+                    <td>{{obj.Time}}</td>
+                    <td>{{obj.Price}}</td>
+                    <td>{{obj.AddedOn}}</td>
+                    <td>
+                       
+                       <button (click)="removebus(obj,index)" class="btn btn-danger">Delete</button>                   
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        
+    </div>
+</div>
+
