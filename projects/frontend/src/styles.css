@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+#login_card {
+    margin-top:200px ;
+    margin-left: 450px;
+    width: 40rem;  
+    background-color: rgb(5, 0, 0);
+    color: cornsilk;
+    opacity: 0.9;
+    text-decoration: none;
+    height: 300px;
+    
+}
+
+#register_card {
+    margin-top:20px ;
+    margin-left: 300px;
+    width: 60rem;  
+    background-color: rgb(255, 255, 255);
+    color: rgb(5, 3, 3);
+    opacity: 0.9;
+    text-decoration: none;
+    height: 380px;
+    
+}
+

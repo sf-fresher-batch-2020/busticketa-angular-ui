@@ -7,28 +7,38 @@
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Search Buses <span class="sr-only">(current)</span></a>
+                <a class="nav-link" routerLink="search-buses" *ngIf="loggedInUser && loggedInUser.role=='USER'">Search Buses <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Show My Ticket</a>
+                <a class="nav-link" href="#" *ngIf="loggedInUser && loggedInUser.role=='USER'">Show My Ticket</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Cancel My Ticket</a>
+                <a class="nav-link" href="#" *ngIf="loggedInUser && loggedInUser.role=='USER'">Cancel My Ticket</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="add-bus" *ngIf="loggedInUser && loggedInUser.role=='ADMIN'">ADD Bus</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="list-bus"  *ngIf="loggedInUser && loggedInUser.role=='ADMIN'">List Bus</a>
             </li>
             
         </ul>
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
             <li class="nav-item ">
-                <a class="nav-link" href="#" *ngIf = "isLoggedInUser">Login</a>
+                <a class="nav-link" routerLink="login" data-loggedin=false *ngIf="!loggedInUser">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" *ngIf = "isLoggedInUser">Register</a>
+                <a class="nav-link" routerLink="register" data-loggedin=false *ngIf="!loggedInUser">Register</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#" *ngIf = "isLoggedInUser">Admin Login</a>
+                <a class="nav-link" routerLink="admin-login" data-loggedin=false *ngIf="!loggedInUser">Admin Login</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Logout</a>
+            <li class="nav-item" *ngIf="loggedInUser">
+                <a class="nav-link" href="" data-loggedin=true style="display: block;" > 
+                    Welcome {{loggedInUser.name}} </a>
+            </li>
+            <li class="nav-item" *ngIf="loggedInUser">
+                <a class="nav-link" href="" (click)="logout()" data-loggedin=true >(Logout) </a>
             </li>
         </ul>
     </div>
