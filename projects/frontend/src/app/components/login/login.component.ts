@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
 
   email: string;
   password: string;
+ 
   constructor(private authService: AuthService, private userService: UserService, private toastr: ToastrService,
     private router: Router) {
 
@@ -33,9 +34,9 @@ export class LoginComponent implements OnInit {
       let userExists = false;
       let loggedInUser = null;
       for (let obj of users) {
-        if (obj.email == this.email && obj.password == this.password) {
+        if (obj.email == this.email && obj.password == this.password ) {
           userExists = true;
-          delete obj["password"];
+         // delete obj["password"];
           loggedInUser = obj;
           break;
         }
@@ -45,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.toastr.success("Successfully Login")
         this.authService.storeLoginDetails(loggedInUser);
         if (loggedInUser.role == "ADMIN") {
-          // window.location.href="techdashboard";
+          window.location.href="add-bus";
 
         }
         else {

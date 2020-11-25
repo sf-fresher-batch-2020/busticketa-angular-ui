@@ -9,7 +9,9 @@ import { AuthService } from '../../services/auth.service';
 export class HeaderComponent implements OnInit {
 
   loggedInUser;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) { 
+    this.loggedInUser = this.authService.getLoggedInUser();
+  }
 
   // Before login, loggedInUser = null
   // After login, loggedInUser = { id: 1, name:"Naresh"}
@@ -20,7 +22,7 @@ export class HeaderComponent implements OnInit {
     
   }
 
- /* logout() {
+  logout() {
     this.authService.logout();
-  }*/
+  }
 }

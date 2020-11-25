@@ -24,6 +24,16 @@ export class UserService {
     
 
   }
-  
- 
+  getAllBuses(){
+    let url= this.apiUrl +"/buses";
+    return this.http.get(url);
+  }
+  addBuses(bus){
+    let url= this.apiUrl +"/buses";
+    return this.http.post(url,bus);
+  }
+  deleteBus(id){
+    let url= this.apiUrl + "/buses" + "/" +id ;
+    return this.http.delete(url);
+  }
 }

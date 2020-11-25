@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { UserService } from '../../services/user.service';
 
 import { ViewBusesService } from '../../services/view-buses.service';
 
@@ -9,14 +12,19 @@ import { ViewBusesService } from '../../services/view-buses.service';
 })
 export class ViewBusesComponent implements OnInit {
 buses;
-  constructor( private viewbus: ViewBusesService) { }
+  constructor( private userService: UserService, private toastr: ToastrService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.listbus();
+    this.loadMybuses();
   }
 
-  listbus(){
-    this.buses = this.viewbus.getbuses();
-  }
+  loadMybuses(){
+    // this.busList = JSON.parse(localStorage.getItem("BUSES_AVAILABLE")) || [];
+    this.userService.getAllBuses().subscribe(res=>{
+      this.buses=res;
+    });
+ 
+   }
 
 }

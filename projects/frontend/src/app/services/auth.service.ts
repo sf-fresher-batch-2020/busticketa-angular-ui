@@ -13,9 +13,10 @@ export class AuthService {
     this.apiUrl= environment .API_URL;
    }
 
-  getLoggedInUser(){
-   let url= this.apiUrl +"/loggedinuser";
-    return this.http.get(url);
+   getLoggedInUser(){
+    let user  = localStorage.getItem("LOGGED_IN_USER");
+    let loggedInUser = user ? JSON.parse(user) : null;
+    return loggedInUser;
   }
 
   
@@ -28,9 +29,8 @@ export class AuthService {
     localStorage.removeItem("LOGGED_IN_USER");
   }
 
-  storeLoginDetails(loggedInUser){
-    let url= this.apiUrl +"/loggedinuser";
-    return this.http.post(url,loggedInUser);
+  storeLoginDetails(user){
+    localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
   }
 }
 
