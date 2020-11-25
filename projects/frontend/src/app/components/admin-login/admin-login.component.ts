@@ -23,7 +23,8 @@ export class AdminLoginComponent implements OnInit {
       let user = {id:1, name:"Paras", role:"ADMIN"};
       localStorage.setItem("LOGGED_IN_USER", JSON.stringify(user));
       this.toastr.success("Welcome Admin");
-      window.location.href="/";
+     // window.location.href="/";
+     window.location.href="add-bus.html";
      
       
     }
